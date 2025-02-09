@@ -56,7 +56,7 @@ namespace cbcsn {
     }
 
     //%blockid=cbcsn_decode
-    //%block="read $txt with $name as index key"
+    //%block="read and decode $txt with $name as index key"
     //%name.shadow=cbcsn_indexkeyshadow name.defl="myIdxKey"
     //%group="main"
     //%weight=5
