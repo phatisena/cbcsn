@@ -38,7 +38,7 @@ namespace cbcsn {
     //%block="write $txt"
     //%group="main"
     //%weight=10
-    export function encode(txt:string) {
+    export function write(txt:string) {
         let charw = 2, charlen = 0
         for (let val of txt.split("")) charlen = Math.max(charlen,val.charCodeAt(0))
         while (charw * charw < charlen) charw += charw
