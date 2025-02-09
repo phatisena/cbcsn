@@ -34,8 +34,8 @@ namespace cbcsn {
         return idxValKey[name]
     }
 
-    //%blockid=cbcsn_encode
-    //%block="write $txt and encode"
+    //%blockid=cbcsn_writeandencode
+    //%block="write $txt"
     //%group="main"
     //%weight=10
     export function encode(txt:string) {
@@ -55,12 +55,12 @@ namespace cbcsn {
         return utxt
     }
 
-    //%blockid=cbcsn_decode
-    //%block="read and decode $txt with $name as index key"
+    //%blockid=cbcsn_readanddecode
+    //%block="read $txt with $name as index key"
     //%name.shadow=cbcsn_indexkeyshadow name.defl="myIdxKey"
     //%group="main"
     //%weight=5
-    export function decode(txt:string,name:string) {
+    export function read(txt:string,name:string) {
         let curidx = idxValKey[name], ccol = 0, crow = 0, cnum = 0, cwid = 0, clen = 0, utxt = "", subchar = "", curchar = "", charcm = ""
         while (curidx < txt.length) {
             charcm = txt.charAt(curidx)
@@ -89,9 +89,3 @@ namespace cbcsn {
     }
 }
 
-let strTest = cbcsn.encode("Makecode")
-strTest += cbcsn.encode("Arcade")
-console.log(strTest)
-cbcsn.setIdxKey("myidxkey",0)
-console.log(cbcsn.decode(strTest,"myidxkey"))
-console.log(cbcsn.decode(strTest,"myidxkey"))
